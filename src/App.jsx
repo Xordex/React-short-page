@@ -24,6 +24,8 @@ function App() {
     setNameBtn(selectedbtn);
   }
 
+  let taboptions = ["Components", "JSX", "Props", "State"];
+
   return (
     <div>
       <Header />
@@ -37,10 +39,7 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={(x) => changeContent(x.target.innerHTML)} isSelected={nameBtn === "Components"}>Components</TabButton>
-            <TabButton onSelect={(x) => changeContent(x.target.innerHTML)} isSelected={nameBtn === "JSX"}>JSX</TabButton>
-            <TabButton onSelect={(x) => changeContent(x.target.innerHTML)} isSelected={nameBtn === "Props"}>Props</TabButton>
-            <TabButton onSelect={(x) => changeContent(x.target.innerHTML)} isSelected={nameBtn === "State"}>State</TabButton>
+            {taboptions.map(y => <TabButton key={y} onSelect={(x) => changeContent(x.target.innerHTML)} isSelected={nameBtn == { y }}>{y}</TabButton>)}
           </menu>
           <div id="tab-content">
             {tabContent}
